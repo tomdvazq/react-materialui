@@ -1,11 +1,13 @@
 import { useState } from "react"
 import NavbarList from "./NavbarList"
-import { Button, Drawer } from "@mui/material";
+import { AppBar, Button, Drawer } from "@mui/material";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
+      <AppBar position="static">h</AppBar>
+
       <Button variant="outlined" onClick={() => setOpen(true)}>Open</Button>
 
       <Drawer

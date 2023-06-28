@@ -11,14 +11,14 @@ function App() {
 
   return (
     <>
-      <Container maxWidth="false">
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
-        </Routes>
-      </Container>
+    <Navbar />
+    <Container maxWidth="false">
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
+      </Routes>
+    </Container>
     </>
   )
 }
