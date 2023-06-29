@@ -1,6 +1,24 @@
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 import HomeIcon from '@mui/icons-material/Home';
 
+const navLinks = [
+    {
+        title: 'Home',
+        path: '/',
+        icon: ''
+    },
+    {
+        title: 'Login',
+        path: '/',
+        icon: ''
+    },
+    {
+        title: 'Register',
+        path: '/',
+        icon: ''
+    },
+]
+
 const NavbarList = () => {
   return (
     <Box sx={{width: 250}}>
