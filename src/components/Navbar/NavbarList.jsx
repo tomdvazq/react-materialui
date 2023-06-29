@@ -1,14 +1,15 @@
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 
-const NavbarList = ({navLink}) => {
+const NavbarList = ({navArrayLinks, NavLink, setOpen}) => {
   return (
     <Box sx={{width: 250}}>
         <nav>
             <List>
                 {
-                    navLink.map(i => (
+                    navArrayLinks.map((i) => (
                         <ListItem key={i.title} disabledPadding>
-                            <ListItemButton component="a" href={i.path}>
+                            <ListItemButton component={NavLink} to={i.path} onClick={() => setOpen(false)}>
+                                <ListItemIcon>{i.icon}</ListItemIcon>
                                 <ListItemText>{i.title}</ListItemText>
                             </ListItemButton>
                         </ListItem>

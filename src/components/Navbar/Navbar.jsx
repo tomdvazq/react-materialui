@@ -1,52 +1,37 @@
 import { useState } from "react"
 import NavbarList from "./NavbarList"
-import { AppBar, Button, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
 import { MenuOutlined } from "@mui/icons-material";
+import { NavLink } from "react-router-dom";
 
-const navLinks = [
-  {
-      title: 'Home',
-      path: '/',
-      icon: ''
-  },
-  {
-      title: 'Login',
-      path: '/login',
-      icon: ''
-  },
-  {
-      title: 'Register',
-      path: '/register',
-      icon: ''
-  },
-];
-
-const Navbar = () => {
+const Navbar = ({navArrayLinks}) => {
   const [open, setOpen] = useState(false);
   return (
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton onClick={() => setOpen(true)}>
+          <IconButton onClick={() => setOpen(true)} sx={{display: {xs: "flex", sm: "none"}}}>
             <MenuOutlined sx={{color: 'white'}}/>
           </IconButton>
           <Typography variant="h6" sx={{flexGrow: 1}}>Skinbox</Typography>
-          {
-            navLinks.map(i => (
-              <Button 
-              sx={{color: 'white'}} 
-              key={i.index}
-              component="a"
-              href={i.path}>
-                {i.title}
-              </Button>
-            ))
-          }
+          <Box sx={{display: {xs: "none", sm: "block"}}}>
+            {
+              navArrayLinks.map(i => (
+                <Button 
+                sx={{color: 'white'}} 
+                key={i.index}
+                component={NavLink}
+                to={i.path}>
+                  {i.title}
+                </Button>
+              ))
+            }
+          </Box>
         </Toolbar>
       </AppBar>
 
-      <Drawer open={open} anchor="left" onClose={() => setOpen(false)}>
-        <NavbarList navLinks={navLinks}/>
+      <Drawer open={open} anchor="left" onClose={() => setOpen(false)} sx={{display: {xs: "flex", sm: "none"}}}>
+        <NavbarList navArrayLinks={navArrayLinks} NavLink={NavLink} setOpen={setOpen}/>
       </Drawer>
     </>
   )
