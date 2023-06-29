@@ -1,39 +1,19 @@
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
-import HomeIcon from '@mui/icons-material/Home';
 
-const navLinks = [
-    {
-        title: 'Home',
-        path: '/',
-        icon: ''
-    },
-    {
-        title: 'Login',
-        path: '/',
-        icon: ''
-    },
-    {
-        title: 'Register',
-        path: '/',
-        icon: ''
-    },
-]
-
-const NavbarList = () => {
+const NavbarList = ({navLink}) => {
   return (
     <Box sx={{width: 250}}>
         <nav>
             <List>
-                <ListItem disabledPadding>
-                    <ListItemButton
-                        component="a"
-                        href="">
-                        <ListItemIcon>
-                            <HomeIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary="Home"/>
-                    </ListItemButton>
-                </ListItem>
+                {
+                    navLink.map(i => (
+                        <ListItem key={i.title} disabledPadding>
+                            <ListItemButton component="a" href={i.path}>
+                                <ListItemText>{i.title}</ListItemText>
+                            </ListItemButton>
+                        </ListItem>
+                    ))
+                }
             </List>
         </nav>
     </Box>
