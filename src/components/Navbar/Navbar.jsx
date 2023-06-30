@@ -3,6 +3,7 @@ import NavbarList from "./NavbarList"
 import { AppBar, Box, Button, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
 import { MenuOutlined } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const Navbar = ({navArrayLinks}) => {
   const [open, setOpen] = useState(false);
@@ -19,13 +20,16 @@ const Navbar = ({navArrayLinks}) => {
               navArrayLinks.map(i => (
                 <Button 
                 sx={{color: 'white'}} 
-                key={i.index}
+                key={i.title}
                 component={NavLink}
                 to={i.path}>
                   {i.title}
                 </Button>
               ))
             }
+          </Box>
+          <Box>
+            <ShoppingCartIcon/>
           </Box>
         </Toolbar>
       </AppBar>
