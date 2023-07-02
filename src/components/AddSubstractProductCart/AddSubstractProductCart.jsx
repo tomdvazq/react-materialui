@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Box, Button, Input } from "@mui/material";
-import "../AddSubstractProductCart/AddSubstractProductCart.css";
 
 const AddSubstractProductCart = () => {
   const [valor, setValor] = useState(1);
