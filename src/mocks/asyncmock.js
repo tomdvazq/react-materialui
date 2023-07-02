@@ -6,7 +6,7 @@ const productosProyecto = [
         descripcion: "Embarcate a la suerte de ganar una Asyncmock Weapon",
         categoria: "Boxes",
         rareza: "Common",
-        img: "https://via.placeholder.com/350x200"
+        img: "./public/img/boxes/box-0.png"
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const productosProyecto = [
         descripcion: "Embarcate a la suerte de ganar una Flavia Weapon",
         categoria: "Boxes",
         rareza: "Common",
-        img: "https://via.placeholder.com/350x200"
+        img: "./public/img/boxes/box-1.png"
     },
 ]
 

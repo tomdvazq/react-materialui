@@ -24,6 +24,9 @@ const theme = createTheme ({
     error: {
       main: '#b71c1c',
     },
+    cart: {
+      main: '#8E10FE',
+    },
   },
 })
 
