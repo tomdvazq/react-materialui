@@ -1,4 +1,4 @@
-const productosProyecto = [
+export const productosProyecto = [
     {
         id: 1,
         nombre: "Inferno Box",

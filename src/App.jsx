@@ -8,7 +8,8 @@ import Register from './views/Register'
 import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
-import { Container } from '@mui/material'
+import { Container } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 const navArrayLinks = [

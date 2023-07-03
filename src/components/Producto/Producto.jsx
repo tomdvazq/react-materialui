@@ -24,7 +24,7 @@ const Producto = ({
       <CardMedia component="img" image={img} height={"auto"} width={150} />
       <Box
         variant="outlined"
-        sx={{ position: "absolute", top: 0, right: 0, padding: 3 + "px", border: 1, borderColor: '#00000020'}}
+        sx={{ position: "absolute", top: 0, right: 0, padding: 3 + "px", borderBottom: 1, borderLeft: 1, borderColor: '#00000010', fontWeight: 'bold'}}
       >
         U$S {precio}
       </Box>
