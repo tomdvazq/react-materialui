@@ -19,6 +19,6 @@ export const filtradoPorSubCategoria = (subcategoria) => {
 
 // Filtro por Precio
 
-export const filtradoPorPRecio = (precio) => {
+export const filtradoPorPrecio = (precio) => {
     return productosProyecto.filter((producto) => producto.precio === precio)
 }

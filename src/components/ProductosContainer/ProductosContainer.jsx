@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { getProductos } from "../../mocks/asyncmock"
-import { filtradoPorCategoria } from "../../mocks/filters/filters";
+import { filtradoPorCategoria, filtradoPorID, filtradoPorSubCategoria } from "../../mocks/filters/filters";
 import Producto from "../Producto/Producto";
 import { Box, Button } from "@mui/material";
 
@@ -29,9 +29,9 @@ const ProductosContainer = () => {
         <Button onClick={() => setCategoriaFiltrada('Boxes')}>Cajas</Button>
         <Button onClick={() => setCategoriaFiltrada('Skins')}>Skins</Button>
         <Button onClick={() => setCategoriaFiltrada('Stickers')}>Stickers</Button>
-        <Button onClick={() => setCategoriaFiltrada()}>Todos</Button>
+        <Button onClick={() => setCategoriaFiltrada(null)}>Todos</Button>
       </Box>
-      <Box sx={{display: 'flex', justifyContent: 'center'}}>
+      <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
         {productos.map((prod) => (
           <Producto key={prod.id} {...prod} />
         ))}
