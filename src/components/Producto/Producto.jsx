@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import AddSubstractProductCart from "../AddSubstractProductCart/AddSubstractProductCart";
+import { Link } from "react-router-dom";
 
 const Producto = ({
   id,
@@ -46,6 +47,7 @@ const Producto = ({
       <CardActions>
         <AddSubstractProductCart />
       </CardActions>
+      <Link to={`/products/${id}`}>Más info</Link>
     </Card>
   );
 };

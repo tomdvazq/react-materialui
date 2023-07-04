@@ -2,7 +2,7 @@ import { productosProyecto } from "../asyncmock";
 
 // Filtro por ID
 export const filtradoPorID = (id) => {
-    return productosProyecto.filter((producto) => producto.id === id)
+    return productosProyecto.find((producto) => producto.id === id)
 }
 
 // Filtro por Categoría
