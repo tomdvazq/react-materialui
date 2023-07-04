@@ -9,7 +9,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { Container } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ProductoDetail from './components/ProductoDetail/ProductoDetail'
 
 
 const navArrayLinks = [
@@ -40,6 +40,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/productos/:id' element={<ProductoDetail/>}></Route>
       </Routes>
     </Container>
     </>

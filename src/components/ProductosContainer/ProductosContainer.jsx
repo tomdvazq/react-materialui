@@ -24,19 +24,11 @@ const ProductosContainer = () => {
   }, [categoriaFiltrada])
 
   return (
-    <Box sx={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-      <Box sx={{display: 'flex', justifyContent: 'center', flexDirection: 'row'}}>
-        <Button onClick={() => setCategoriaFiltrada('Boxes')}>Cajas</Button>
-        <Button onClick={() => setCategoriaFiltrada('Skins')}>Skins</Button>
-        <Button onClick={() => setCategoriaFiltrada('Stickers')}>Stickers</Button>
-        <Button onClick={() => setCategoriaFiltrada(null)}>Todos</Button>
-      </Box>
       <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
         {productos.map((prod) => (
           <Producto key={prod.id} {...prod} />
         ))}
       </Box>
-    </Box>
   )
 }
 

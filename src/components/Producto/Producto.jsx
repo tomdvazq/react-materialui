@@ -47,7 +47,7 @@ const Producto = ({
       <CardActions>
         <AddSubstractProductCart />
       </CardActions>
-      <Link to={`/products/${id}`}>Más info</Link>
+      <Link to={`/productos/${id}`}>Ver más</Link>
     </Card>
   );
 };
