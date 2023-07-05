@@ -2,7 +2,7 @@ import { productosProyecto } from "../asyncmock";
 
 // Filtro por ID - Detail de productos
 
-export const filtrarInformacionPorID = (id) => {
+export const filtradoPorID = (id) => {
     return new Promise(resolve => {
         setTimeout( () => {
             const producto = productosProyecto.find((producto) => producto.id === id);
