@@ -1,20 +1,22 @@
-import { useState, useEffect } from "react"
-import { filtradoPorID } from "../../mocks/filters/filters"
-import ProductoDetail from "../ProductoDetail/ProductoDetail"
+import { useState, useEffect } from "react";
+import { filtradoPorID } from "../../mocks/filters/filters";
+import ProductoDetail from "../ProductoDetail/ProductoDetail";
 import { useParams } from "react-router-dom";
 
 const ProductoDetailContainer = () => {
-    const [producto, setProducto] = useState(null);
-    const {idProducto} = useParams();
+    const [productos, setProductos] = useState(null);
+    const {idProd} = useParams();
 
-    let perro = useEffect( () => {
-        filtradoPorID(idProducto)
-            .then(res => setProducto(res))
-            .catch(err => alert('Producto no encontrado', err))
-    }, [idProducto]);
+    useEffect( () => {
+        filtradoPorID(Number(idProd))
+            .then(res => setProductos(res))
+            .catch(err => console.log('Error', err))
+    }, [idProd])
 
   return (
-    <ProductoDetail id={producto.id}/>
+    <>
+        <ProductoDetail  {...productos}/>
+    </>
   )
 }
 

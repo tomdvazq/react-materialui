@@ -2,7 +2,6 @@ import ProductosContainer from "../components/ProductosContainer/ProductosContai
 const Home = () => {
   return (
     <>
-      Home
       <ProductosContainer/>
     </>
   )

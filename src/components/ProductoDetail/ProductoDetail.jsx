@@ -1,7 +1,17 @@
-const ProductoDetail = ({ id }) => {
-  return (
-    <div>holaaa {id}</div>
-  )
-}
+import { Typography } from "@mui/material";
 
-export default ProductoDetail
+const ProductoDetail = ({
+  id,
+  nombre,
+  precio,
+  categoria,
+  subcategoria,
+  rareza,
+  img
+}) => {
+  return <>
+    {nombre} {precio}
+  </>;
+};
+
+export default ProductoDetail;

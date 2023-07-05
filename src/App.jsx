@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import AddSubstractProductCart from './components/AddSubstractProductCart/AddSubstractProductCart'
 import Navbar from './components/Navbar/Navbar'
 import Home from './views/Home'
 import Login from './views/Login'
@@ -9,7 +8,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { Container } from '@mui/material';
-import ProductoDetail from './components/ProductoDetail/ProductoDetail'
+import ProductoDetailContainer from './components/ProductoDetailContainer/ProductoDetailContainer';
 
 
 const navArrayLinks = [
@@ -40,7 +39,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
-        <Route path='/productos/:id' element={<ProductoDetail/>}></Route>
+        <Route path='/producto/:idProd' element={<ProductoDetailContainer/>}/>
       </Routes>
     </Container>
     </>
