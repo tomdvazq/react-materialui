@@ -7,7 +7,7 @@ export const productosProyecto = [
         categoria: "Boxes",
         subcategoria: "",
         rareza: "Common",
-        img: "./public/img/boxes/box-0.png"
+        img: "/public/img/boxes/box-0.png"
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ export const productosProyecto = [
         categoria: "Boxes",
         subcategoria: "",
         rareza: "Common",
-        img: "./public/img/boxes/box-1.png"
+        img: "/public/img/boxes/box-1.png"
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ export const productosProyecto = [
         categoria: "Skins",
         subcategoria: "Cuchillos",
         rareza: "Rare",
-        img: "./public/img/skins/skin-0.png"
+        img: "/public/img/skins/skin-0.png"
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ export const productosProyecto = [
         categoria: "Stickers",
         subcategoria: "Equipos",
         rareza: "Rare",
-        img: "./public/img/stickers/sticker-0.png"
+        img: "/public/img/stickers/sticker-0.png"
     },
 ]
 

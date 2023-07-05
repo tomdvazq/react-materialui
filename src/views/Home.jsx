@@ -1,8 +1,11 @@
+import { Container } from "@mui/material"
 import ProductosContainer from "../components/ProductosContainer/ProductosContainer"
 const Home = () => {
   return (
     <>
-      <ProductosContainer/>
+      <Container>
+        <ProductosContainer/>
+      </Container>
     </>
   )
 }
