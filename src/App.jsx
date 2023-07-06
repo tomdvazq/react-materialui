@@ -9,8 +9,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { Container } from '@mui/material';
 import ProductoDetailContainer from './components/ProductoDetailContainer/ProductoDetailContainer';
-import { Contexto } from './context/context'
-
+import { CarritoProvider } from './context/CarritoContext';
 
 const navArrayLinks = [
   {
