@@ -1,1 +1,0 @@
-export const Contexto = React.createContext(null);
