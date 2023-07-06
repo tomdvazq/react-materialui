@@ -32,7 +32,7 @@ export const productosProyecto = [
     {
         id: 4,
         nombre: "Sticker | oskar (oro)",
-        precio: 400,
+        precio: 800,
         descripcion: "Autografiada por el jugador profesional Tomas Stastny",
         categoria: "Stickers",
         subcategoria: "Equipos",
