@@ -1,11 +1,12 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Box, Button, Input } from "@mui/material";
+import { useContext } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
 
-const AddSubstractProductCart = () => {
+const AddSubstractProductCart = ({item}) => {
   const [valor, setValor] = useState(1);
-  const refCantidad = useRef();
 
   const add = () => {
     setValor(valor + 1);
@@ -13,6 +14,12 @@ const AddSubstractProductCart = () => {
 
   const substract = () => {
     valor > 1 ? setValor(valor - 1) : setValor(1);
+  };
+
+  const {agregarProducto} = useContext(CarritoContext);
+
+  const addToCart = () => {
+    agregarProducto(item, valor);
   };
 
   return (
@@ -37,7 +44,6 @@ const AddSubstractProductCart = () => {
         <Button
           type="number"
           variant="outlined"
-          inputRef={refCantidad}
           sx={{ margin: 3 + "px" }}
         >
           {valor}
@@ -48,6 +54,7 @@ const AddSubstractProductCart = () => {
           variant="contained"
           color="cart"
           sx={{ margin: 3 + "px", color: 'white', width: 205 + 'px'}}
+          onClick={addToCart}
         >
           Añadir al carrito
         </Button>

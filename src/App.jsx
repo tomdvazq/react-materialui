@@ -33,15 +33,17 @@ function App() {
 
   return (
     <>
-    <Navbar navArrayLinks={navArrayLinks}/>
-    <Container maxWidth="false">
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/producto/:idProd' element={<ProductoDetailContainer/>}/>
-      </Routes>
-    </Container>
+      <CarritoProvider>
+        <Navbar navArrayLinks={navArrayLinks}/>
+          <Container maxWidth="false">
+              <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/login' element={<Login/>}/>
+                <Route path='/register' element={<Register/>}/>
+                <Route path='/producto/:idProd' element={<ProductoDetailContainer/>}/>
+              </Routes>
+          </Container>
+      </CarritoProvider>
     </>
   )
 }

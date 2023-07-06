@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import AddSubstractProductCart from "../AddSubstractProductCart/AddSubstractProductCart";
 import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
 
 const Producto = ({
   id,
@@ -20,6 +22,11 @@ const Producto = ({
   rareza,
   img,
 }) => {
+  const {carrito} = useContext(CarritoContext);
+
+  useEffect( () => {
+    console.log("Carrito actualizado:", carrito);
+  }, [carrito])
   return (
     <Card sx={{ maxWidth: 250, margin: 5 + "px", position: "relative" }}>
       <CardMedia component="img" image={img} height={"auto"} width={150} />
@@ -45,7 +52,7 @@ const Producto = ({
       </CardContent>
       <Divider light />
       <CardActions>
-        <AddSubstractProductCart />
+        <AddSubstractProductCart item={{id, nombre, precio}}/>
       </CardActions>
       <Link to={`/producto/${id}`}>Ver más</Link>
     </Card>
