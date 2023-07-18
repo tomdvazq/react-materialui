@@ -1,29 +1,27 @@
 import { useState, useEffect, useContext } from "react";
-import { getProductos } from "../../mocks/asyncmock";
-import { filtradoPorCategoria } from "../../mocks/filters/filters";
+import { useParams } from "react-router-dom";
 import Producto from "../Producto/Producto";
+import { collection, getDocs, query } from 'firebase/firestore'
 import { Box, Button } from "@mui/material";
 import { CarritoContext } from "../../context/CarritoContext";
+import { db } from "../../services/config";
 
 const ProductosContainer = () => {
   const [productos, setProductos] = useState([]);
-  const [categoriaFiltrada, setCategoriaFiltrada] = useState('');
+  const { idCategoria } = useParams();
 
-  useEffect( () => {
-    async function productosData(){
-      const data = await getProductos();
-
-      // Aplicar filtro solo sí hay una categoría seleccionada
-
-      const productosFiltrados = categoriaFiltrada
-      ? filtradoPorCategoria(categoriaFiltrada, data)
-      : data;
-
-    setProductos(productosFiltrados);
-    }
-    productosData();
-  }, [categoriaFiltrada])
-
+  useEffect(() => {
+    const misProductos = idCategoria ? query(collection(db, 'inventario'), where ("categoria", "==", idCategoria)) : collection(db, 'inventario');
+    getDocs(misProductos)
+      .then( res => {
+        const nuevosProductos = res.docs.map(doc => {
+          const data = doc.data();
+          return {id: doc.id, ...data}
+        })
+        setProductos(nuevosProductos);
+      })
+      .catch( err => console.log('Error', err))
+  },[idCategoria])
 
   const {carrito} = useContext(CarritoContext);
 
