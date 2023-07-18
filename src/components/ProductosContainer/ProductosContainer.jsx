@@ -4,10 +4,7 @@ import Producto from "../Producto/Producto";
 import { collection, getDocs, query } from 'firebase/firestore'
 import { Box, Button } from "@mui/material";
 import { CarritoContext } from "../../context/CarritoContext";
-import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "../../services/config";
-import { useParams } from "react-router-dom";
-
 
 const ProductosContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -15,7 +12,6 @@ const ProductosContainer = () => {
 
   useEffect(() => {
     const misProductos = idCategoria ? query(collection(db, 'inventario'), where ("categoria", "==", idCategoria)) : collection(db, 'inventario');
-
     getDocs(misProductos)
       .then( res => {
         const nuevosProductos = res.docs.map(doc => {
