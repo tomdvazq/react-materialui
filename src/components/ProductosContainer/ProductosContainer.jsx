@@ -4,26 +4,26 @@ import { filtradoPorCategoria } from "../../mocks/filters/filters";
 import Producto from "../Producto/Producto";
 import { Box, Button } from "@mui/material";
 import { CarritoContext } from "../../context/CarritoContext";
+import { collection, getDocs, query } from "firebase/firestore";
+import { db } from "../../services/config";
+import { useParams } from "react-router-dom";
 
 const ProductosContainer = () => {
   const [productos, setProductos] = useState([]);
+  const { idCategoria } = useParams();
   const [categoriaFiltrada, setCategoriaFiltrada] = useState('');
 
-  useEffect( () => {
-    async function productosData(){
-      const data = await getProductos();
-
-      // Aplicar filtro solo sí hay una categoría seleccionada
-
-      const productosFiltrados = categoriaFiltrada
-      ? filtradoPorCategoria(categoriaFiltrada, data)
-      : data;
-
-    setProductos(productosFiltrados);
-    }
-    productosData();
-  }, [categoriaFiltrada])
-
+  useEffect(() => {
+    const misProductos = idCategoria ? query(collection(db, 'inventario'), where ("idCat", "==", idCategoria)) : collection(db, 'inventario');
+    getDocs(misProductos)
+      .then( res => {
+        const nuevosProductos = res.docs.map(doc => {
+          const data = doc.data();
+          return {id: doc.id, ...data}
+        })
+      })
+      .catch( err => console.log('Error', err))
+  },[idCategoria])
 
   const {carrito} = useContext(CarritoContext);
 
