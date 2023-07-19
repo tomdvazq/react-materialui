@@ -3,9 +3,9 @@ import NavbarList from "./NavbarList"
 import { AppBar, Box, Button, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
 import { MenuOutlined } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartWidget from "../CartWidget/CartWidget";
 
-const Navbar = ({ navArrayLinks, index }) => {
+const Navbar = ({ navArrayLinks }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -16,19 +16,7 @@ const Navbar = ({ navArrayLinks, index }) => {
           </IconButton>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>Skinbox</Typography>
           <Box sx={{ display: {sm: "block", md: "none" } }}>
-            {
-                navArrayLinks.map((i, index) => (
-                  index == 6 ? (
-                    <Button
-                    sx={{ color: 'white' }}
-                    key={i.title}
-                    component={NavLink}
-                    to={i.path}>
-                    {i.title}
-                  </Button>
-                  ) : null
-                ))
-              }
+            <CartWidget navArrayLinks={navArrayLinks} NavLink={NavLink}/>
           </Box>
           <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
             {

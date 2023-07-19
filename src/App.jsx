@@ -47,7 +47,8 @@ const navArrayLinks = [
   {
     title: <ShoppingCartIcon/>,
     path: '/cart',
-    icon: <ShoppingCartIcon/>
+    icon: <ShoppingCartIcon/>,
+    isCart: true
 },
 ];
 
