@@ -6,6 +6,7 @@ import Login from './views/Login'
 import Register from './views/Register'
 import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { Container } from '@mui/material';
 import ProductoDetailContainer from './components/ProductoDetailContainer/ProductoDetailContainer';
@@ -43,6 +44,11 @@ const navArrayLinks = [
       path: '/register',
       icon: <HowToRegIcon/>
   },
+  {
+    title: <ShoppingCartIcon/>,
+    path: '/cart',
+    icon: <ShoppingCartIcon/>
+},
 ];
 
 function App() {
@@ -58,6 +64,7 @@ function App() {
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/producto/:idProd' element={<ProductoDetailContainer/>}/>
                 <Route path='/categoria/:categoria' element={<ProductosContainer/>}/>
+                <Route path='/cart' element={'Acá habrá carrito papu'}></Route>
               </Routes>
           </Container>
       </CarritoProvider>

@@ -5,37 +5,49 @@ import { MenuOutlined } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const Navbar = ({navArrayLinks}) => {
+const Navbar = ({ navArrayLinks, index }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
       <AppBar position="static">
         <Toolbar>
-          <IconButton onClick={() => setOpen(true)} sx={{display: {xs: "flex", sm: "none"}}}>
-            <MenuOutlined sx={{color: 'white'}}/>
+          <IconButton onClick={() => setOpen(true)} sx={{ display: { sm: "flex", md: "none" } }}>
+            <MenuOutlined sx={{ color: 'white' }} />
           </IconButton>
-          <Typography variant="h6" sx={{flexGrow: 1}}>Skinbox</Typography>
-          <Box sx={{display: {xs: "none", sm: "block"}}}>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>Skinbox</Typography>
+          <Box sx={{ display: {sm: "block", md: "none" } }}>
+            {
+                navArrayLinks.map((i, index) => (
+                  index == 6 ? (
+                    <Button
+                    sx={{ color: 'white' }}
+                    key={i.title}
+                    component={NavLink}
+                    to={i.path}>
+                    {i.title}
+                  </Button>
+                  ) : null
+                ))
+              }
+          </Box>
+          <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
             {
               navArrayLinks.map(i => (
-                <Button 
-                sx={{color: 'white'}} 
-                key={i.title}
-                component={NavLink}
-                to={i.path}>
+                <Button
+                  sx={{ color: 'white' }}
+                  key={i.title}
+                  component={NavLink}
+                  to={i.path}>
                   {i.title}
                 </Button>
               ))
             }
           </Box>
-          <Box>
-            <ShoppingCartIcon/>
-          </Box>
         </Toolbar>
       </AppBar>
 
-      <Drawer open={open} anchor="left" onClose={() => setOpen(false)} sx={{display: {xs: "flex", sm: "none"}}}>
-        <NavbarList navArrayLinks={navArrayLinks} NavLink={NavLink} setOpen={setOpen}/>
+      <Drawer open={open} anchor="left" onClose={() => setOpen(false)} sx={{ display: { sm: "flex", md: "none" } }}>
+        <NavbarList navArrayLinks={navArrayLinks} NavLink={NavLink} setOpen={setOpen} />
       </Drawer>
     </>
   )

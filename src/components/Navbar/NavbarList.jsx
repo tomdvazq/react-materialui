@@ -6,13 +6,15 @@ const NavbarList = ({navArrayLinks, NavLink, setOpen}) => {
         <nav>
             <List>
                 {
-                    navArrayLinks.map((i) => (
-                        <ListItem key={i.title} disabledPadding>
+                    navArrayLinks.map((i, index) => (
+                        index !== 6 ? (
+                            <ListItem key={i.title} disabledPadding>
                             <ListItemButton component={NavLink} to={i.path} onClick={() => setOpen(false)}>
                                 <ListItemIcon>{i.icon}</ListItemIcon>
                                 <ListItemText>{i.title}</ListItemText>
                             </ListItemButton>
-                        </ListItem>
+                            </ListItem>
+                        ) : null
                     ))
                 }
             </List>
