@@ -1,17 +1,17 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Producto from "../Producto/Producto";
-import { collection, getDocs, query } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { Box, Button } from "@mui/material";
 import { CarritoContext } from "../../context/CarritoContext";
 import { db } from "../../services/config";
 
 const ProductosContainer = () => {
   const [productos, setProductos] = useState([]);
-  const { idCategoria } = useParams();
+  const { categoria } = useParams();
 
   useEffect(() => {
-    const misProductos = idCategoria ? query(collection(db, 'inventario'), where ("categoria", "==", idCategoria)) : collection(db, 'inventario');
+    const misProductos = categoria ? query(collection(db, 'inventario'), where("categoria", "==", categoria)) : collection(db, 'inventario');
     getDocs(misProductos)
       .then( res => {
         const nuevosProductos = res.docs.map(doc => {
@@ -21,7 +21,7 @@ const ProductosContainer = () => {
         setProductos(nuevosProductos);
       })
       .catch( err => console.log('Error', err))
-  },[idCategoria])
+  },  [categoria])
 
   const {carrito} = useContext(CarritoContext);
 

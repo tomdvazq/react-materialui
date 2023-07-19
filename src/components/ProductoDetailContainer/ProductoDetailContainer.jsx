@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { filtradoPorID } from "../../mocks/filters/filters";
 import ProductoDetail from "../ProductoDetail/ProductoDetail";
 import { useParams } from "react-router-dom";
 import { getDoc, doc } from 'firebase/firestore';
