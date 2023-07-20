@@ -1,30 +1,47 @@
 import { Box, Typography } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import "../ProductoDetail/ProductoDetail.css";
+import AddSubstractProductCart from "../AddSubstractProductCart/AddSubstractProductCart"; 
 
 const ProductoDetail = ({
   id,
   nombre,
+  descripcion,
   precio,
   categoria,
   subcategoria,
   rareza,
-  img
+  img,
 }) => {
-  return <>
-    <Grid2 container spacing={2} sx={{border: 1}}>
-      <Grid2 xs={6}>
+  const colors = (rareza) => {
+    if (rareza === 'Common') {
+      return 'common';
+    } else {
+      return 'rare';
+    }
+  }
+  return (
+    <>
+      <Box className="containerProductoDetail">
         <Box
-        component="img"
-        src={img}
-        alt={nombre}>
-
+          component="img"
+          className="imagenProducto"
+          src={img}
+          alt={nombre}
+        ></Box>
+        <Box className="producto">
+          <Box className="title">
+            <Typography variant="h2">{nombre}</Typography>
+            <Typography variant="span" className={colors(rareza)}>{rareza}</Typography>
+          </Box>
+          <Typography className="description" variant="p">{descripcion}</Typography>
+          <Box className="buy">
+            <AddSubstractProductCart item={{id, nombre, precio}}/>
+            <Typography variant="span">$ {precio}</Typography>
+          </Box>
         </Box>
-      </Grid2>
-      <Grid2 xs={6}>
-        <Typography variant="h2">{nombre}</Typography>
-      </Grid2>
-    </Grid2>
-  </>;
+      </Box>
+    </>
+  );
 };
 
 export default ProductoDetail;

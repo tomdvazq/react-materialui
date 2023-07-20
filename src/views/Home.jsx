@@ -1,9 +1,11 @@
 import { Container } from "@mui/material"
 import ProductosContainer from "../components/ProductosContainer/ProductosContainer"
+import '../views/Home.css'
+
 const Home = () => {
   return (
     <>
-      <Container>
+      <Container className="containerHome">
         <ProductosContainer/>
       </Container>
     </>

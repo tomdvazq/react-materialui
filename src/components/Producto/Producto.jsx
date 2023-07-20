@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import AddSubstractProductCart from "../AddSubstractProductCart/AddSubstractProductCart";
 import { Link } from "react-router-dom";
+import '../Producto/Producto.css'
 
 const Producto = ({
   id,
@@ -21,7 +22,7 @@ const Producto = ({
   img,
 }) => {
   return (
-    <Card sx={{ maxWidth: 250, margin: 5 + "px", position: "relative" }}>
+    <Card className="productHome" sx={{ maxWidth: 250, margin: 10 + "px", position: "relative"}}>
       <CardMedia component="img" image={img} height={"auto"} width={150} />
       <Box
         variant="outlined"
@@ -45,9 +46,9 @@ const Producto = ({
       </CardContent>
       <Divider light />
       <CardActions>
-        <AddSubstractProductCart item={{id, nombre, precio}}/>
+        <AddSubstractProductCart item={{id, nombre, precio, img}}/>
       </CardActions>
-      <Link to={`/producto/${id}`}>Ver más</Link>
+      <Link className="moreData" to={`/producto/${id}`}>Más información</Link>
     </Card>
   );
 };

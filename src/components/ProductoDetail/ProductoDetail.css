@@ -1,0 +1,85 @@
+.containerProductoDetail{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-end;
+}
+
+.imagenProducto{
+
+}
+
+.producto{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 5px;
+}
+
+.producto .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.producto .title h2{
+    font-weight: bold;
+}
+
+.producto .title span{
+    border: solid 1px rgba(0, 0, 0, .1);
+    padding: 3px;
+    font-weight: 500;
+}
+
+.producto .title span.common{
+    background-color: green;
+    color: white;
+}
+
+.producto .title span.rare{
+    background-color: red;
+    color: white;
+}
+
+.producto .description{
+    border-bottom: solid 1px rgba(0, 0, 0, .1);
+    margin-bottom: 5px;
+}
+
+.producto .buy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.producto .buy span{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+    .containerProductoDetail{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .producto{
+        width: auto;
+    }
+
+    .producto .title{
+        flex-direction: column;
+    }
+
+    .producto .title h2{
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .producto .description{
+        text-align: center;
+    }
+}
+

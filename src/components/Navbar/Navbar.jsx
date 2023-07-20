@@ -18,7 +18,7 @@ const Navbar = ({ navArrayLinks }) => {
           <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
             {
               navArrayLinks.map((i, index) => (
-                index !== 6 ? (
+                index !== 4 ? (
                     <Button
                     sx={{ color: 'white' }}
                     key={i.title}

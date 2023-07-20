@@ -7,7 +7,7 @@ const NavbarList = ({navArrayLinks, NavLink, setOpen}) => {
             <List>
                 {
                     navArrayLinks.map((i, index) => (
-                        index !== 6 ? (
+                        index !== 4 ? (
                             <ListItem key={i.title} disabledPadding>
                             <ListItemButton component={NavLink} to={i.path} onClick={() => setOpen(false)}>
                                 <ListItemIcon>{i.icon}</ListItemIcon>
