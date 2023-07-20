@@ -1,0 +1,15 @@
+#cart {
+    position: relative;
+}
+
+#cart strong {  
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: solid 1px red;
+    background: red;
+    color: white;
+    border-radius: 100%;
+    width: 20px;
+    text-align: center;
+}
