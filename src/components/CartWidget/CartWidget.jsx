@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 
 const CartWidget = ({navArrayLinks}) => {
     const {cantidadTotal} = useContext(CarritoContext);
+
   return (
     <div>
       {navArrayLinks.map((item) =>
@@ -19,6 +20,9 @@ const CartWidget = ({navArrayLinks}) => {
           </Button>
         ) : null
       )}
+      {
+        cantidadTotal > 0 ? <strong>{cantidadTotal}</strong> : null
+      }
     </div>
   );
 };

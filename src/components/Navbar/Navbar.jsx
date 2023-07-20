@@ -15,21 +15,23 @@ const Navbar = ({ navArrayLinks }) => {
             <MenuOutlined sx={{ color: 'white' }} />
           </IconButton>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>Skinbox</Typography>
-          <Box sx={{ display: {sm: "block", md: "none" } }}>
-            <CartWidget navArrayLinks={navArrayLinks} NavLink={NavLink}/>
-          </Box>
           <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
             {
-              navArrayLinks.map(i => (
-                <Button
-                  sx={{ color: 'white' }}
-                  key={i.title}
-                  component={NavLink}
-                  to={i.path}>
-                  {i.title}
-                </Button>
+              navArrayLinks.map((i, index) => (
+                index !== 6 ? (
+                    <Button
+                    sx={{ color: 'white' }}
+                    key={i.title}
+                    component={NavLink}
+                    to={i.path}>
+                    {i.title}
+                    </Button>
+                ) : null
               ))
             }
+          </Box>
+          <Box sx={{ display: {sm: "block", md: "block" } }}>
+            <CartWidget navArrayLinks={navArrayLinks} NavLink={NavLink}/>
           </Box>
         </Toolbar>
       </AppBar>

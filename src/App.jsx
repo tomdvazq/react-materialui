@@ -7,6 +7,7 @@ import Register from './views/Register'
 import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Cart from './components/Cart/Cart'
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { Container } from '@mui/material';
 import ProductoDetailContainer from './components/ProductoDetailContainer/ProductoDetailContainer';
@@ -65,7 +66,7 @@ function App() {
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/producto/:idProd' element={<ProductoDetailContainer/>}/>
                 <Route path='/categoria/:categoria' element={<ProductosContainer/>}/>
-                <Route path='/cart' element={'Acá habrá carrito papu'}></Route>
+                <Route path='/cart' element={<Cart/>}></Route>
               </Routes>
           </Container>
       </CarritoProvider>

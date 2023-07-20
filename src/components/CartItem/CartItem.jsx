@@ -8,8 +8,8 @@ const CartItem = ({item, cantidad}) => {
   return (
     <div>
         <h4> {item.nombre} </h4>
-        <span>Cantidad: {item.cantidad}</span>
-        <span>Precio: {item.precio}</span>
+        <p>Cantidad: {cantidad}</p>
+        <p>Precio: {item.precio}</p>
         <Button onClick={() => eliminarProducto()}>Eliminar</Button>
     </div>
   )
