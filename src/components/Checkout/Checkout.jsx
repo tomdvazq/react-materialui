@@ -32,7 +32,7 @@ const Checkout = () => {
       return;
     }
 
-    if(carrito.length <= 0) {
+    if (carrito.length <= 0) {
       setError("No hay nada en el carito.");
       return;
     }
@@ -72,8 +72,33 @@ const Checkout = () => {
           <div className="productsCheckoutUnity">
             <img src={prod.item.img} alt="" />
             <div className="productCheckoutData">
-              <h3>{prod.item.nombre}</h3> x <span>{prod.cantidad}</span>
-              <p>Precio: {prod.item.precio}</p>
+              <h3>
+                {prod.item.nombre}{" "}
+                <span style={{ fontWeight: 100 }}>x {prod.cantidad}</span>
+              </h3>
+              <div style={{ padding: 3 + 'px' }}>
+                <p>
+                  <span
+                    style={{
+                      backgroundColor: "purple",
+                      color: "white",
+                      fontWeight: "bold",
+                      padding: 2 + 'px'
+                    }}
+                  >
+                    x1
+                  </span>{" "}
+                  ${prod.item.precio}
+                </p>
+                <p style={{
+                      backgroundColor: "green",
+                      color: "white",
+                      fontWeight: "bold",
+                      padding: 2 + 'px'
+                    }}>
+                  <span >TOTAL</span> ${prod.item.precio * prod.cantidad}
+                </p>
+              </div>
             </div>
           </div>
         ))}
@@ -136,9 +161,17 @@ const Checkout = () => {
           />
         </FormControl>
 
-        {error && <p style={{color: 'red', fontSize: 12 + 'px'}}>Error: {error}</p>}
-        
-        {!ordenId ? <button type="submit">Finalizar compra</button> : <strong style={{color: 'green'}}>¡Gracias por tu compra! Tu número de órden es {ordenId}</strong>}
+        {error && (
+          <p style={{ color: "red", fontSize: 12 + "px" }}>Error: {error}</p>
+        )}
+
+        {!ordenId ? (
+          <button type="submit">Finalizar compra</button>
+        ) : (
+          <strong style={{ color: "green" }}>
+            ¡Gracias por tu compra! Tu número de órden es {ordenId}
+          </strong>
+        )}
       </form>
     </div>
   );
