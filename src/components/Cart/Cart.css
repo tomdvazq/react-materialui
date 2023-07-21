@@ -51,17 +51,19 @@
 
 @media screen and (max-width: 600px) {
     .cartContainer .productInfo{
-        width: 350px;
-        height: 300px;
+        width: 300px;
+        height: auto;
     }
 
     .cartContainer .productCart .productData{
         line-height: 20px;
         margin: 0px 20px;
         flex-direction: column;
+        text-align: center;
     }
 
-    .cartContainer .productCart{
+    .cartContainer .productCart,
+    .cartContainer .productCart .productInfo{
         flex-direction: column;
     }
 }

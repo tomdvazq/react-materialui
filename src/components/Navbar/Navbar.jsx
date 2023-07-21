@@ -9,7 +9,7 @@ const Navbar = ({ navArrayLinks }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <AppBar position="fixed">
+      <AppBar position="static" sx={{height: 60 + 'px'}}>
         <Toolbar>
           <IconButton onClick={() => setOpen(true)} sx={{ display: { sm: "flex", md: "none" } }}>
             <MenuOutlined sx={{ color: 'white' }} />

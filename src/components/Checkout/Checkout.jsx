@@ -31,6 +31,12 @@ const Checkout = () => {
       setError("Los campos de email no coinciden.");
       return;
     }
+
+    if(carrito.length <= 0) {
+      setError("No hay nada en el carito.");
+      return;
+    }
+
     // Checkout
     const orden = {
       items: carrito.map((prod) => ({
@@ -44,6 +50,7 @@ const Checkout = () => {
       celular,
       email,
     };
+
     // Guardamos la orden en Firebase
     addDoc(collection(db, "ordenes"), orden)
       .then((docRef) => {
@@ -130,13 +137,9 @@ const Checkout = () => {
         </FormControl>
 
         {error && <p style={{color: 'red', fontSize: 12 + 'px'}}>Error: {error}</p>}
-
-        <button type="submit">Finalizar compra</button>
+        
+        {!ordenId ? <button type="submit">Finalizar compra</button> : <strong style={{color: 'green'}}>¡Gracias por tu compra! Tu número de órden es {ordenId}</strong>}
       </form>
-
-      {ordenId && (
-        <strong style={{color: 'green'}}>¡Gracias por tu compra! Tu número de órden es {ordenId}</strong>
-      )}
     </div>
   );
 };
