@@ -10,6 +10,7 @@ import { Container } from '@mui/material';
 import ProductoDetailContainer from './components/ProductoDetailContainer/ProductoDetailContainer';
 import { CarritoProvider } from './context/CarritoContext';
 import ProductosContainer from './components/ProductosContainer/ProductosContainer'
+import Checkout from './components/Checkout/Checkout';
 
 const navArrayLinks = [
   {
@@ -51,7 +52,8 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/producto/:idProd' element={<ProductoDetailContainer/>}/>
                 <Route path='/categoria/:categoria' element={<ProductosContainer/>}/>
-                <Route path='/cart' element={<Cart/>}></Route>
+                <Route path='/cart' element={<Cart/>}/>
+                <Route path='/checkout' element={<Checkout/>}/>
               </Routes>
           </Container>
       </CarritoProvider>
