@@ -1,0 +1,22 @@
+.productsCheckout{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.productsCheckout .productsCheckoutUnity{
+    display: flex;
+    align-items: center;
+    margin: 0px 20px;
+    width: 350px;
+    padding: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.productsCheckout .productsCheckoutUnity .productCheckoutData{
+    margin: 0px 10px;
+}
+
+.productsCheckout .productsCheckoutUnity img{
+    width: 100px;
+}

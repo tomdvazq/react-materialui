@@ -1,5 +1,5 @@
 .cartContainer{
-    height: 100vh;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,4 +47,16 @@
 .cartContainer button .finishBuy{
     text-decoration: none;
     color: green;
+}
+
+@media screen and (max-width: 600px) {
+    .cartContainer .productInfo{
+        width: 350px;
+        height: 300px;
+    }
+
+    .cartContainer .productCart .productData{
+        line-height: 20px;
+        margin: 0px 20px;
+    }
 }
