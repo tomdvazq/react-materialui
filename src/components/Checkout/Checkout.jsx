@@ -4,9 +4,11 @@ import { db } from "../../services/config";
 import { collection, addDoc } from "firebase/firestore";
 import { FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
 import "../Checkout/Checkout.css";
+import { green } from "@mui/material/colors";
 
 const Checkout = () => {
   const { carrito, vaciarCarrito, cantidadTotal } = useContext(CarritoContext);
+
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [celular, setCelular] = useState("");
@@ -58,7 +60,6 @@ const Checkout = () => {
 
   return (
     <div className="checkoutContainer">
-      <h5>Checkout</h5>
       <div className="productsCheckout">
         {carrito.map((prod) => (
           <div className="productsCheckoutUnity">
@@ -72,6 +73,7 @@ const Checkout = () => {
       </div>
 
       <form onSubmit={manejadorFormulario}>
+        <h5>Checkout</h5>
         <FormControl>
           <InputLabel htmlFor="nombre">Nombre</InputLabel>
           <Input
@@ -127,13 +129,13 @@ const Checkout = () => {
           />
         </FormControl>
 
-        {error && <p>Error {error}</p>}
+        {error && <p style={{color: 'red', fontSize: 12 + 'px'}}>Error: {error}</p>}
 
         <button type="submit">Finalizar compra</button>
       </form>
 
       {ordenId && (
-        <strong>¡Gracias por tu compra! Tu número de órden es {ordenId}</strong>
+        <strong style={{color: 'green'}}>¡Gracias por tu compra! Tu número de órden es {ordenId}</strong>
       )}
     </div>
   );

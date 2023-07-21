@@ -58,5 +58,10 @@
     .cartContainer .productCart .productData{
         line-height: 20px;
         margin: 0px 20px;
+        flex-direction: column;
+    }
+
+    .cartContainer .productCart{
+        flex-direction: column;
     }
 }

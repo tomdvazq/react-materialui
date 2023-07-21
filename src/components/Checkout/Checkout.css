@@ -1,5 +1,13 @@
+.checkoutContainer{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
 .productsCheckout{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -7,7 +15,7 @@
 .productsCheckout .productsCheckoutUnity{
     display: flex;
     align-items: center;
-    margin: 0px 20px;
+    margin: 10px 20px;
     width: 350px;
     padding: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -19,4 +27,24 @@
 
 .productsCheckout .productsCheckoutUnity img{
     width: 100px;
+}
+
+.checkoutContainer form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.checkoutContainer form .MuiFormControl-root{
+    margin: 10px 0px;
+}
+
+@media screen and (max-width: 800px){
+    .checkoutContainer{
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
