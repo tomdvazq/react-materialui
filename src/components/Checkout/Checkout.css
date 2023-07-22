@@ -1,8 +1,14 @@
 .checkoutContainer{
+    width: 100vw;
     margin-top: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 5px;
+}
+
+.checkoutContainer span{
+    width: 350px;
+    font-size: 13px;
 }
 
 .productsCheckout{
@@ -15,7 +21,7 @@
 .productsCheckout .productsCheckoutUnity{
     display: flex;
     align-items: center;
-    margin: 10px 20px;
+    margin: 10px 40px 10px 0px;
     width: 350px;
     padding: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -46,5 +52,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .productsCheckout .productsCheckoutUnity{
+        align-self: center;
     }
 }

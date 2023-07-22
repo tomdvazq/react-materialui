@@ -7,7 +7,7 @@ import "../Checkout/Checkout.css";
 import { green } from "@mui/material/colors";
 
 const Checkout = () => {
-  const { carrito, vaciarCarrito, cantidadTotal } = useContext(CarritoContext);
+  const { carrito, total, vaciarCarrito, cantidadTotal } = useContext(CarritoContext);
 
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -68,6 +68,7 @@ const Checkout = () => {
   return (
     <div className="checkoutContainer">
       <div className="productsCheckout">
+        <span>Usted está comprando {cantidadTotal} {cantidadTotal > 1 ? 'productos' : 'producto'} por ${total} dólares</span>
         {carrito.map((prod) => (
           <div className="productsCheckoutUnity">
             <img src={prod.item.img} alt="" />
