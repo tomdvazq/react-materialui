@@ -1,8 +1,6 @@
 # eCommerce de Skins de Counter-Strike: Global Offensive (CS:GO)
 
-<center>
-  <img src="/public/img/skins/skin-0.png" alt="CS:GO Skins eCommerce">
-</center>
+![CS:GO Skins eCommerce](/public/img/skins/skin-0.png)
 
 ## Descripción
 
