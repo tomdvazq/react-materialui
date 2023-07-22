@@ -1,32 +1,31 @@
-import { useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Box, Button, Input } from "@mui/material";
 import { useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 
-const AddSubstractProductCart = ({item}) => {
-  const [valor, setValor] = useState(1);
-
-  const add = () => {
-    setValor(valor + 1);
+const AddSubstractProductCart = ({ item, cantidad, setCantidad }) => {
+  const handleIncrement = () => {
+    setCantidad(cantidad + 1);
   };
 
-  const substract = () => {
-    valor > 1 ? setValor(valor - 1) : setValor(1);
+  const handleDecrement = () => {
+    if (cantidad > 1) {
+      setCantidad(cantidad - 1);
+    }
   };
 
-  const {agregarProducto} = useContext(CarritoContext);
+  const { agregarProducto } = useContext(CarritoContext);
 
   const addToCart = () => {
-    agregarProducto(item, valor);
+    agregarProducto(item, cantidad);
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column"}}>
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Box>
         <Button
-          onClick={substract}
+          onClick={handleDecrement}
           variant="contained"
           color="error"
           sx={{ margin: 3 + "px" }}
@@ -34,7 +33,7 @@ const AddSubstractProductCart = ({item}) => {
           <RemoveShoppingCartIcon />
         </Button>
         <Button
-          onClick={add}
+          onClick={handleIncrement}
           variant="contained"
           color="success"
           sx={{ margin: 3 + "px" }}
@@ -42,18 +41,19 @@ const AddSubstractProductCart = ({item}) => {
           <AddShoppingCartIcon />
         </Button>
         <Button
+          id="cantidadProducto"
           type="number"
           variant="outlined"
           sx={{ margin: 3 + "px" }}
         >
-          {valor}
+          {cantidad}
         </Button>
       </Box>
       <Box>
         <Button
           variant="contained"
           color="cart"
-          sx={{ margin: 3 + "px", color: 'white', width: 205 + 'px'}}
+          sx={{ margin: 3 + "px", color: "white", width: 205 + "px" }}
           onClick={addToCart}
         >
           Añadir al carrito

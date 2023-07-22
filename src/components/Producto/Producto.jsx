@@ -11,6 +11,7 @@ import {
 import AddSubstractProductCart from "../AddSubstractProductCart/AddSubstractProductCart";
 import { Link } from "react-router-dom";
 import '../Producto/Producto.css'
+import { useState } from "react";
 
 const Producto = ({
   id,
@@ -21,6 +22,9 @@ const Producto = ({
   rareza,
   img,
 }) => {
+
+  const [cantidad, setCantidad] = useState(1);
+  
   return (
     <Card className="productHome" sx={{ maxWidth: 250, margin: 10 + "px", position: "relative"}}>
       <CardMedia component="img" image={img} height={"auto"} width={150} />
@@ -46,7 +50,7 @@ const Producto = ({
       </CardContent>
       <Divider light />
       <CardActions>
-        <AddSubstractProductCart item={{id, nombre, precio, img}}/>
+        <AddSubstractProductCart cantidad={cantidad} setCantidad={setCantidad} item={{id, nombre, precio, img}}/>
       </CardActions>
       <Link className="moreData" to={`/producto/${id}`}>Más información</Link>
     </Card>

@@ -1,13 +1,14 @@
 .containerProductoDetail{
     height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
     align-self: flex-end;
 }
 
 .imagenProducto{
-
+    
 }
 
 .producto{
@@ -25,6 +26,7 @@
 
 .producto .title h2{
     font-weight: bold;
+    font-size: 30px;
 }
 
 .producto .title span{

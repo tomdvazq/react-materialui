@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 import { db } from "../../services/config";
 import { collection, addDoc } from "firebase/firestore";
-import { FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
+import { Button, FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
 import "../Checkout/Checkout.css";
 import { green } from "@mui/material/colors";
 
@@ -166,7 +166,13 @@ const Checkout = () => {
         )}
 
         {!ordenId ? (
-          <button type="submit">Finalizar compra</button>
+          <Button
+            type="submit"
+            color="success"
+            variant="contained"
+          >
+            Finalizar compra
+          </Button>
         ) : (
           <strong style={{ color: "green" }}>
             ¡Gracias por tu compra! Tu número de órden es {ordenId}

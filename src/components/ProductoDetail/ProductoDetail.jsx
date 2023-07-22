@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import "../ProductoDetail/ProductoDetail.css";
 import AddSubstractProductCart from "../AddSubstractProductCart/AddSubstractProductCart"; 
+import { useState, useEffect } from "react";
 
 const ProductoDetail = ({
   id,
@@ -19,6 +20,9 @@ const ProductoDetail = ({
       return 'rare';
     }
   }
+
+  const [cantidad, setCantidad] = useState(1);
+
   return (
     <>
       <Box className="containerProductoDetail">
@@ -35,8 +39,8 @@ const ProductoDetail = ({
           </Box>
           <Typography className="description" variant="p">{descripcion}</Typography>
           <Box className="buy">
-            <AddSubstractProductCart item={{id, nombre, precio}}/>
-            <Typography variant="span">$ {precio}</Typography>
+            <AddSubstractProductCart cantidad={cantidad} setCantidad={setCantidad} item={{id, nombre, precio, img}}/>
+            <Typography variant="span">$ {precio * cantidad}</Typography>
           </Box>
         </Box>
       </Box>
